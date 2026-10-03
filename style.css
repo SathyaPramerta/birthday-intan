@@ -1,0 +1,97 @@
+:root{--pink:#ff6fa5;--violet:#8b6bff;--ink:#2d1b3d;--muted:#6b5a7a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;font-size:1.05rem;color:var(--ink);min-height:100vh;background:#fff4f8;overflow-x:hidden;text-align:center;position:relative}
+
+/* ---------- background ---------- */
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.55;z-index:-2;animation:drift 14s ease-in-out infinite alternate}
+.b1{width:420px;height:420px;background:#ffc2da;top:-100px;left:-100px}
+.b2{width:380px;height:380px;background:#cfc2ff;bottom:-80px;right:-80px;animation-delay:-5s}
+.b3{width:300px;height:300px;background:#bfe9ff;top:45%;left:55%;animation-delay:-9s}
+@keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+.floaters{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.floaters span{position:absolute;bottom:-60px;opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.55}90%{opacity:.4}100%{transform:translateY(-115vh) rotate(40deg);opacity:0}}
+
+/* ---------- layout ---------- */
+section{padding:90px 20px;max-width:760px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;position:relative}
+.title{font-family:'Quicksand',sans-serif;font-weight:700;font-size:clamp(2.4rem,8vw,4.8rem);line-height:1.12;letter-spacing:-.02em}
+.title span{background:linear-gradient(90deg,var(--pink),var(--violet),var(--pink));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+h2{font-family:'Quicksand',sans-serif;font-weight:700;font-size:clamp(1.7rem,4vw,2.3rem);margin-bottom:26px}
+.eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
+.sub{font-size:1.15rem;color:var(--muted);margin-top:16px;max-width:460px;line-height:1.6}
+.bigcat{font-size:5.5rem;animation:bob 2.4s ease-in-out infinite;filter:drop-shadow(0 12px 14px #ff6fa544)}
+@keyframes bob{50%{transform:translateY(-12px) rotate(5deg)}}
+.badge{display:inline-block;margin:10px 0 18px;padding:7px 18px;border-radius:50px;background:#fff;color:var(--pink);font-weight:600;font-size:.9rem;box-shadow:0 4px 14px #ff6fa530}
+.scroll-hint{position:absolute;bottom:28px;width:26px;height:42px;border:2px solid #8b6bff66;border-radius:20px;display:flex;justify-content:center;padding-top:7px}
+.scroll-hint span{width:4px;height:9px;border-radius:4px;background:var(--violet);animation:scrollDot 1.6s infinite}
+@keyframes scrollDot{0%{transform:translateY(0);opacity:1}100%{transform:translateY(14px);opacity:0}}
+
+/* ---------- buttons & cards ---------- */
+.btn{margin-top:28px;border:0;padding:15px 34px;font:600 1.05rem 'Quicksand',sans-serif;color:#fff;border-radius:50px;cursor:pointer;position:relative;overflow:hidden;
+background:linear-gradient(90deg,var(--pink),var(--violet));box-shadow:0 10px 24px #8b6bff55;transition:transform .2s,box-shadow .2s}
+.btn::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(120deg,transparent,#ffffff77,transparent);transform:skewX(-20deg);transition:left .6s}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 30px #8b6bff66}
+.btn:hover::after{left:140%}
+.btn:active{transform:scale(.96)}
+.card{background:#ffffffd9;backdrop-filter:blur(14px);border:1px solid #fff;border-radius:30px;padding:38px 30px;box-shadow:0 20px 60px #8b6bff22}
+.letter{text-align:left;font-size:1.15rem;line-height:1.85;font-weight:500}
+#wishText{min-height:9em}
+#wishText.typing::after{content:'|';margin-left:2px;color:var(--pink);animation:blink .8s infinite}
+@keyframes blink{50%{opacity:0}}
+#hint{color:var(--muted);line-height:1.6}
+
+/* ---------- cake ---------- */
+.cake{position:relative;width:240px;height:210px;margin:30px auto 14px}
+.cake::before{content:'';position:absolute;bottom:-10px;left:-24px;right:-24px;height:18px;background:#fff;border-radius:50%;box-shadow:0 8px 18px #8b6bff33}
+.layer{position:absolute;left:0;right:0;border-radius:16px}
+.l1{bottom:0;height:72px;background:
+ radial-gradient(circle at 18% 30%,#fff 2px,transparent 3px),radial-gradient(circle at 42% 70%,#ffe66d 2px,transparent 3px),
+ radial-gradient(circle at 70% 30%,#8b6bff 2px,transparent 3px),radial-gradient(circle at 86% 65%,#fff 2px,transparent 3px),
+ linear-gradient(#ff9ec4,#ff7fb0)}
+.l1::after{content:'^ ω ^';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:700 1.15rem 'Quicksand',sans-serif;color:#b0366f99;letter-spacing:.1em;padding-top:8px}
+.l2{bottom:72px;left:28px;right:28px;height:60px;background:linear-gradient(#ffd1e3,#ffbdd7)}
+.drip{position:absolute;bottom:130px;left:28px;right:28px;height:16px;background:#fff;border-radius:12px 12px 20px 20px}
+.candle{position:absolute;bottom:146px;left:calc(50% - 6px);width:12px;height:42px;background:repeating-linear-gradient(45deg,var(--violet) 0 6px,#fff 6px 12px);border-radius:3px}
+.flame{position:absolute;top:-26px;left:-2px;width:16px;height:26px;background:radial-gradient(#fff 15%,#ffd54a 50%,#ff8a3d);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:flick .3s infinite alternate;transform-origin:bottom;transition:opacity .4s,transform .4s;box-shadow:0 0 26px 8px #ffd54a88}
+.out .flame{opacity:0;transform:scale(0)}
+@keyframes flick{to{transform:scale(1.1,.92) rotate(3deg)}}
+.smoke{position:absolute;top:-30px;left:2px;font-size:1.4rem;opacity:0}
+.out .smoke{animation:rise 2s forwards}
+@keyframes rise{from{opacity:.8}to{opacity:0;transform:translateY(-50px)}}
+
+/* ---------- polaroid memes ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:26px}
+.meme{background:#fff;border-radius:10px;padding:12px 12px 8px;box-shadow:0 12px 32px #8b6bff26;transition:transform .3s,box-shadow .3s;position:relative;cursor:pointer}
+.meme:nth-child(odd){transform:rotate(-2.5deg)}.meme:nth-child(even){transform:rotate(2.5deg)}
+.meme:hover{transform:translateY(-8px) rotate(0) scale(1.04);box-shadow:0 20px 40px #ff6fa540}
+.meme::before{content:'';position:absolute;top:-10px;left:50%;width:70px;height:20px;transform:translateX(-50%) rotate(-3deg);background:#ffd1e3cc;border-radius:3px;box-shadow:0 2px 6px #0001}
+.meme .pic{height:170px;border-radius:6px;background:linear-gradient(135deg,#ffe3ee,#e6deff);display:flex;align-items:center;justify-content:center;font-size:4.8rem;overflow:hidden;transition:transform .3s}
+.meme:hover .pic{transform:scale(1.03)}
+.meme img{width:100%;height:100%;object-fit:cover}
+.meme p{margin:14px 6px 8px;font-family:'Quicksand',sans-serif;font-weight:700;font-size:1rem;line-height:1.4}
+.meme.boing{animation:boing .5s}
+@keyframes boing{30%{transform:scale(1.12) rotate(4deg)}60%{transform:scale(.96) rotate(-3deg)}}
+
+/* ---------- surprise & effects ---------- */
+#surprise{display:none;margin-top:28px}
+#surprise.show{display:block;animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{opacity:0;transform:scale(.85) translateY(20px)}}
+.paw{position:fixed;font-size:1.6rem;pointer-events:none;animation:fall linear forwards;z-index:5}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+.spark{position:fixed;pointer-events:none;z-index:9;font-size:.9rem;animation:spark .8s forwards}
+@keyframes spark{to{transform:translateY(24px) scale(.2) rotate(90deg);opacity:0}}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:10}
+.sound-toggle{position:fixed;top:16px;right:16px;z-index:20;width:46px;height:46px;border-radius:50%;border:1px solid #fff;background:#ffffffcc;backdrop-filter:blur(10px);font-size:1.25rem;cursor:pointer;box-shadow:0 6px 18px #8b6bff33;transition:transform .2s}
+.sound-toggle:hover{transform:scale(1.12)}
+footer{padding:40px;color:var(--muted);font-size:.95rem}
+
+/* ---------- scroll reveal ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:480px){section{padding:64px 16px}.card{padding:30px 20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+.signature{margin-top:28px;text-align:right;font-size:1rem;line-height:1.6;color:var(--muted);font-style:italic}.signature b{font-style:normal;color:var(--pink);font-size:1.15rem}
